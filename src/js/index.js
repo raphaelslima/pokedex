@@ -30,6 +30,7 @@ const renderPokemon = async (pokemon) => {
     pokemon_name.innerHTML = data.name;
     separator.innerHTML = "-";
     pokemon_image.style.display = "block";
+    numberPokemonSearch = data.id;
     pokemon_number.innerHTML = data.id;
     pokemon_image.src =
       data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
@@ -50,13 +51,15 @@ form.addEventListener("submit", (e) => {
 });
 
 btnNext.addEventListener("click", () => {
-  const idPokemon = numberPokemonSearch + 1;
-  renderPokemon(idPokemon.toString());
+  numberPokemonSearch = numberPokemonSearch + 1;
+  renderPokemon(numberPokemonSearch.toString());
 });
 
 btnPrev.addEventListener("click", () => {
-  const idPokemin = numberPokemonSearch - 1;
-  renderPokemon(idPokemin.toString());
+  if (numberPokemonSearch > 1) {
+    numberPokemonSearch = numberPokemonSearch - 1;
+  }
+  renderPokemon(numberPokemonSearch.toString());
 });
 
 renderPokemon(numberPokemonSearch.toString());
