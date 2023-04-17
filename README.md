@@ -1,4 +1,4 @@
-# ALGA SHOPPING
+# Pokedex
 
 Aplicação web que simula uma pokedex da franquia de Pokemon.
 
